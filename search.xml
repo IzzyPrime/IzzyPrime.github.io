@@ -5,8 +5,8 @@
     
     <entry>
       <title>Hello World</title>
-      <link href="/2020/05/06/hello-world/"/>
-      <url>/2020/05/06/hello-world/</url>
+      <link href="/2020/05/06/Hello-World/"/>
+      <url>/2020/05/06/Hello-World/</url>
       
         <content type="html"><![CDATA[<p>花了一个下午的时间完成了在Github上的博客。<br>一开始因为只能是静态网页有些沮丧，想着还是得自己租个服务器来完成。<br>然后翻着翻着网页就看到了使用Hexo来搭建个人博客，简单地设置了一下，效果喜人。</p><h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><h2 id="TODO-1"><a href="#TODO-1" class="headerlink" title="TODO"></a>TODO</h2><h3 id="TODO-2"><a href="#TODO-2" class="headerlink" title="TODO"></a>TODO</h3>]]></content>
       
