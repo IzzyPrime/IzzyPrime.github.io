@@ -28,7 +28,7 @@ body {
   z-index: -999;
   width: 100%;
   height: 100%;
-  background: url("https://cdn.jsdelivr.net/gh/IzzyPrime/HexoStaticFile@latest/2020/05/25/2073f471cfe55a198a710a2cd3fa846d.png");
+  background: ;
   background-attachment: local;
   background-position: center;
   -webkit-background-size: cover;
@@ -1988,7 +1988,6 @@ blockquote footer cite:before {
 #aside_content .card-archives ul.card-archive-list > .card-archive-list-item,
 #aside_content .card-categories ul.card-category-list > .card-category-list-item {
   padding: 0.15rem 1rem;
-  cursor: pointer;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -2035,6 +2034,30 @@ blockquote footer cite:before {
 #aside_content .card-archives ul.card-archive-list > .card-archive-list-item.more:hover span,
 #aside_content .card-categories ul.card-category-list > .card-category-list-item.more:hover span {
   padding-right: 0.6rem;
+}
+#aside_content .card-categories ul .card-category-list-name {
+  display: inline-block;
+  width: 70%;
+  cursor: pointer;
+}
+#aside_content .card-categories ul .card-category-list-count {
+  display: inline-block;
+  width: 20%;
+}
+#aside_content .card-categories ul .fa {
+  display: inline-block;
+  width: 10%;
+  cursor: pointer;
+}
+#aside_content .card-categories ul ul {
+  display: none;
+}
+#aside_content .card-categories ul .card-post-name {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }
 #aside_content .card-categories .card-category-list.child {
   padding: 0 0 0 1.2rem;
@@ -3202,6 +3225,9 @@ blockquote footer cite:before {
   margin: 0 auto;
   padding: 2rem 15px;
   max-width: 1200px;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 #recent-posts {
   width: 75%;
@@ -4090,6 +4116,9 @@ img {
   margin: 0 auto;
   padding: 2rem 15px;
   max-width: 1000px;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 .layout_post img {
   display: block;
@@ -4717,7 +4746,7 @@ img {
   padding: 0.3rem 0 0.8em;
 }
 .has-jax {
-  overflow: auto;
+  overflow: visible;
 }
 figure.gallery-group {
   position: relative;
@@ -5128,7 +5157,6 @@ figure.gallery-group .gallery-group-name:after {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.7);
   content: '';
 }
 [data-theme='dark'] #nav > #page-header a {
@@ -5252,6 +5280,10 @@ figure.gallery-group .gallery-group-name:after {
 [data-theme='dark'] #aside_content .social-icon,
 [data-theme='dark'] #aside_content .card-category-list-link-more,
 [data-theme='dark'] #aside_content .card-archive-list-link-more {
+  color: rgba(255,255,255,0.6) !important;
+}
+[data-theme='dark'] #aside_content .card-categories ul .card-post-name,
+[data-theme='dark'] #aside_content .card-categories ul .card-category-list-name {
   color: rgba(255,255,255,0.6) !important;
 }
 [data-theme='dark'] .button--animated:before {
