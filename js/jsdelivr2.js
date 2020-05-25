@@ -1,5 +1,5 @@
 var name = "IzzyPrime";
-var repository = "IzzyPrime.Github.io";
+var repository = "IzzyPrime.github.io";
 if(document.domain != 'localhost'){
 	if(document.getElementById("post")){
 		for (var key in document.getElementById("article-container").getElementsByTagName('img')){
