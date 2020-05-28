@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>将Hexo双线部署在Coding和Github上</title>
+      <link href="/2020/05/28/1/"/>
+      <url>/2020/05/28/1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="写在开头的话"><a href="#写在开头的话" class="headerlink" title="写在开头的话"></a>写在开头的话</h2><p>总所周知在国内的网络环境下访问Github的速度实在捉急，偶尔还会抽抽风。尽管通过引入JS实现CDN加速，但是因为没有备案所有无法使用阿里云的<a href="https://www.aliyun.com/product/dcdn?spm=5176.12825654.1kquk9v2l.3.3dbd2c4aIRkqbo" target="_blank" rel="noopener">全站加速DCDN</a>服务。</p><p>所以选择将博客部署在Coding上来改善访问速度。</p><p>而Coding在近期将关闭个人代码托管的业务，所以我们需要将代码托管在自己建立的团队下，那么开始吧！<del>さぁ、ゲームを始めましょう</del></p><h2 id="第一步-实名认证"><a href="#第一步-实名认证" class="headerlink" title="第一步 实名认证"></a>第一步 实名认证</h2><p>在团队项目中想让我们的代码部署在静态网站上需要团队所有者进行团队实名认证，认证流程非常简单，只是入口比较难找<del>找客服问了才找到</del></p><p>从右上角自己的头像进入【团队管理】 → 【团队设置】 → 【高级设置】 → 【实名认证】。</p><img src="https://cdn.jsdelivr.net/gh/IzzyPrime/HexoStaticFile@latest/2020/05/28/2074ed78f84ae4fc04ba9f1bfc126a19.png" width="80%"/><h2 id="第二步-创建项目"><a href="#第二步-创建项目" class="headerlink" title="第二步 创建项目"></a>第二步 创建项目</h2><p>新建一个代码托管项目，是否公开源代码按个人喜好选择即可。即使你不公开源代码网站也是能够正常访问的！</p><img src="https://cdn.jsdelivr.net/gh/IzzyPrime/HexoStaticFile@latest/2020/05/28/322d110d6b054db4a85a7e8a2a224365.png" width="80%"/><h2 id="第三步-打开持续部署"><a href="#第三步-打开持续部署" class="headerlink" title="第三步 打开持续部署"></a>第三步 打开持续部署</h2><p>在【项目设置】 → 【项目与成员】 → 【功能开关】中，将持续部署的开关打开。</p><img src="https://cdn.jsdelivr.net/gh/IzzyPrime/HexoStaticFile@latest/2020/05/28/d68413ba9496755bdc9833a73db7914d.png" width="80%"/><p>这样你就能在全部产品栏目中找到持续部署——静态网站这个选项。</p><h2 id="第四步-添加SSH公钥"><a href="#第四步-添加SSH公钥" class="headerlink" title="第四步 添加SSH公钥"></a>第四步 添加SSH公钥</h2><p>因为是在已经完成在Github上的部署之后进行在Coding上的部署，这里默认已经生成了SSH公钥。</p><p><del>生成方式还是写一下吧</del>打开命令行终端输入 <code>ssh-keygen -m PEM -t rsa -b 4096 -C &quot;your.email@example.com&quot;</code> (您的邮箱)，连续点击 Enter 键即可。</p><p>在终端输入 <code>open ~/.ssh</code>，用文本编辑器打开 <code>id_rsa.pub</code>文件（此处是生成公钥的默认名称，如果生成公钥时采用了其他名称，打开相对应的文件即可），复制全部内容。</p><p>登录 CODING ，点击右上角【个人设置】，选择菜单【SSH 公钥】，点击【新增公钥】按钮。</p><img src="https://cdn.jsdelivr.net/gh/IzzyPrime/HexoStaticFile@latest/2020/05/28/fb2224e0ee1e32223e8f1fafa9822023.png" width="80%"/><p>将复制的内容填写到【公钥内容】一栏，公钥名称按需填写即可。</p><p>最后设定公钥有效期，可选择具体日期或设置永久有效。</p><h2 id="第五步-配置仓库地址，测试能否部署"><a href="#第五步-配置仓库地址，测试能否部署" class="headerlink" title="第五步 配置仓库地址，测试能否部署"></a>第五步 配置仓库地址，测试能否部署</h2><p>打开根目录下的<code>_config.yml</code>文件，将Coding项目的SSH地址填入其中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: </span><br><span class="line">    #github: git@github.com:IzzyPrime&#x2F;IzzyPrime.github.io.git #此处是你的github仓库地址，可以先注释掉进行测试</span><br><span class="line">    coding: git@e.coding.net:izzyprime&#x2F;blog.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>执行命令 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p><img src="https://cdn.jsdelivr.net/gh/IzzyPrime/HexoStaticFile@latest/2020/05/28/0960e94ee84f82b4a40f759b2c6931e6.png" width="80%"/><h2 id="第六步-部署静态网站"><a href="#第六步-部署静态网站" class="headerlink" title="第六步 部署静态网站"></a>第六步 部署静态网站</h2><p>【持续部署】 → 【静态网站】 → 【新建静态网站】，填写好网站名称，触发机制选择自动部署。</p><img src="https://cdn.jsdelivr.net/gh/IzzyPrime/HexoStaticFile@latest/2020/05/28/17d82c5f9db791bf7c5fc3d5e417a9ba.png" width="80%"/><p>保存后点击【立刻部署】，部署完成后点击访问地址查看能否正常访问。</p><p>如果有自己域名，则可以自行配置CNAME解析这里就不做赘述了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> learning log </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Coding </tag>
+            
+            <tag> Github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo-Butterfly的客制化</title>
       <link href="/2020/05/24/Hexo-Butterfly%E7%9A%84%E5%AE%A2%E5%88%B6%E5%8C%96/"/>
       <url>/2020/05/24/Hexo-Butterfly%E7%9A%84%E5%AE%A2%E5%88%B6%E5%8C%96/</url>
@@ -35,7 +64,7 @@
       <link href="/2020/05/20/Hello-World/"/>
       <url>/2020/05/20/Hello-World/</url>
       
-        <content type="html"><![CDATA[<h2 id="System-out-println-“Hello-World”"><a href="#System-out-println-“Hello-World”" class="headerlink" title="System.out.println(“Hello World”);"></a>System.out.println(“Hello World”);</h2><p>很久很久以前就想自己搭建一个博客，来记录一下自己的生活、学习以及其他的种种<del>主要是写点文艺青年骚骚的随笔</del>。</p><p>可能是因为自己写的前端实在是太难看了，又或是服务器太贵（不是），一直没有像样的成果。</p><p>这几天在网站看Github相关的视频以及文章，发现了Hexo这个宝藏。</p><p>写下这篇文章或是更多地想记录一个它的变化吧。</p><h2 id="Update-2020-05-26"><a href="#Update-2020-05-26" class="headerlink" title="Update 2020.05.26"></a>Update 2020.05.26</h2><ul><li>部署了<a href="https://github.com/xCss/Valine" target="_blank" rel="noopener">Valine</a>，一款快速、简洁且高效的无后端评论系统。</li><li>更新友链及自我介绍页面</li><li>更新了一些以前写的随笔</li></ul><h2 id="Update-2020-05-25"><a href="#Update-2020-05-25" class="headerlink" title="Update 2020.05.25"></a>Update 2020.05.25</h2><ul><li>随机背景</li><li>通过引入JS实现CDN加速</li></ul><h2 id="Update-2020-05-24"><a href="#Update-2020-05-24" class="headerlink" title="Update 2020.05.24"></a>Update 2020.05.24</h2><ul><li>部署了<a href="https://www.tidio.com/" target="_blank" rel="noopener">Tidio</a>，一个Live Chat/Chatbot Builder.</li><li>更改了鼠标样式</li><li>绑定了<a href="https://libo.ink">域名libo.ink</a></li><li><del>TODO：背景图片一体化(主页、Page完成了，Post页面未完成)</del></li><li><del>TODO：随机背景</del></li></ul><h2 id="Dated-from-2020-05-20"><a href="#Dated-from-2020-05-20" class="headerlink" title="Dated from 2020.05.20"></a>Dated from 2020.05.20</h2><ul><li>基本完成</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="System-out-println-“Hello-World”"><a href="#System-out-println-“Hello-World”" class="headerlink" title="System.out.println(“Hello World”);"></a>System.out.println(“Hello World”);</h2><p>很久很久以前就想自己搭建一个博客，来记录一下自己的生活、学习以及其他的种种<del>主要是写点文艺青年骚骚的随笔</del>。</p><p>可能是因为自己写的前端实在是太难看了，又或是服务器太贵（不是），一直没有像样的成果。</p><p>这几天在网站看Github相关的视频以及文章，发现了Hexo这个宝藏。</p><p>写下这篇文章或是更多地想记录一个它的变化吧。</p><h2 id="Update-2020-05-28"><a href="#Update-2020-05-28" class="headerlink" title="Update 2020.05.28"></a>Update 2020.05.28</h2><ul><li>将网站双线部署在Github和Coding上，优化了国内的访问速度。</li></ul><h2 id="Update-2020-05-26"><a href="#Update-2020-05-26" class="headerlink" title="Update 2020.05.26"></a>Update 2020.05.26</h2><ul><li>部署了<a href="https://github.com/xCss/Valine" target="_blank" rel="noopener">Valine</a>，一款快速、简洁且高效的无后端评论系统。</li><li>更新友链及自我介绍页面</li><li>更新了一些以前写的随笔</li></ul><h2 id="Update-2020-05-25"><a href="#Update-2020-05-25" class="headerlink" title="Update 2020.05.25"></a>Update 2020.05.25</h2><ul><li>随机背景</li><li>通过引入JS实现CDN加速</li></ul><h2 id="Update-2020-05-24"><a href="#Update-2020-05-24" class="headerlink" title="Update 2020.05.24"></a>Update 2020.05.24</h2><ul><li>部署了<a href="https://www.tidio.com/" target="_blank" rel="noopener">Tidio</a>，一个Live Chat/Chatbot Builder.</li><li>更改了鼠标样式</li><li>绑定了<a href="https://libo.ink">域名libo.ink</a></li><li><del>TODO：背景图片一体化(主页、Page完成了，Post页面未完成)</del></li><li><del>TODO：随机背景</del></li></ul><h2 id="Dated-from-2020-05-20"><a href="#Dated-from-2020-05-20" class="headerlink" title="Dated from 2020.05.20"></a>Dated from 2020.05.20</h2><ul><li>基本完成</li></ul>]]></content>
       
       
       <categories>
@@ -72,9 +101,9 @@
       
         <tags>
             
-            <tag> 时间 </tag>
-            
             <tag> 空间 </tag>
+            
+            <tag> 时间 </tag>
             
             <tag> 光 </tag>
             
@@ -101,9 +130,9 @@
       
         <tags>
             
-            <tag> 空间 </tag>
-            
             <tag> 维度 </tag>
+            
+            <tag> 空间 </tag>
             
         </tags>
       
