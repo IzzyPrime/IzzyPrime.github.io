@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Java学习笔记-从零开始</title>
+      <link href="//6b49/"/>
+      <url>//6b49/</url>
+      
+        <content type="html"><![CDATA[<div class="note success">            <p>本文可与<a href="https://github.com/IzzyPrime/JavaWorkspace/tree/master/JavaPractice" target="_blank" rel="noopener">Java练习</a>一同食用，。</p>          </div><h1 id="Part1"><a href="#Part1" class="headerlink" title="Part1"></a>Part1</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> learning log </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Maven </tag>
+            
+            <tag> JDBC </tag>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>将Hexo双线部署在Coding和Github上</title>
       <link href="//94b5/"/>
       <url>//94b5/</url>
