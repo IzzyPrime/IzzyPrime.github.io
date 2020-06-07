@@ -3834,7 +3834,7 @@ blockquote footer cite:before {
   position: absolute;
   top: calc(50% - 0.35rem);
   color: #f47466;
-  content: '\f0c1';
+  content: '\f0e7';
   font-style: normal;
   font-variant: normal;
   line-height: 1;
