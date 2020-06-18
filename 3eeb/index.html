@@ -122,7 +122,7 @@ function activateLightMode(){
 }
 
 var guestInfo = requestSetting(['nick','mail','link'],'nick,mail,link')
-var requiredFields = requestSetting(['nick','mail','link'],'')
+var requiredFields = requestSetting(['nick','mail','link'],'nick')
 
 window.valine = new Valine({
   el:'#vcomment',
@@ -131,7 +131,7 @@ window.valine = new Valine({
   notify: false,
   verify: false,
   placeholder: 'Please leave your footprints',
-  avatar: 'monsterid',
+  avatar: 'robohash',
   meta: guestInfo,
   pageSize: '10',
   lang: 'en',
