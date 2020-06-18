@@ -99,7 +99,7 @@ function activateLightMode(){
 }
 
 var guestInfo = requestSetting(['nick','mail','link'],'nick,mail,link')
-var requiredFields = requestSetting(['nick','mail','link'],'nick')
+var requiredFields = requestSetting(['nick','mail','link'],'')
 
 window.valine = new Valine({
   el:'#vcomment',
