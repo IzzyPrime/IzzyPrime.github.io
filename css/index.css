@@ -2671,6 +2671,9 @@ blockquote footer cite:before {
   #nav.post-bg > #post-info > #post-meta .meta-thirdline .post-meta-pv-cv .post-meta__separator:first-child {
     display: none;
   }
+  #nav.post-bg > #post-info > #post-meta .meta-thirdline .post-meta-commentcount .post-meta__separator {
+    display: none;
+  }
 }
 #loading-box .loading-left-bg {
   position: fixed;
